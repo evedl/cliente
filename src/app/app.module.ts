@@ -3,6 +3,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
+//animaciones
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+
+
 
 //Componentes
 import { AppComponent } from './app.component';
@@ -18,7 +23,11 @@ import { ListarProductosComponent } from './components/listar-productos/listar-p
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule //importar funcion de angular para formularios
+    ReactiveFormsModule, //importar funcion de angular para formularios
+    //animaciones
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(), // ToastrModule added
+
   ],
   providers: [],
   bootstrap: [AppComponent]
