@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
+import { Producto } from 'src/app/models/producto';
+import { ProductoService } from 'src/app/services/producto.service';
 
 @Component({
   selector: 'app-listar-productos',
@@ -6,10 +9,33 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./listar-productos.component.css']
 })
 export class ListarProductosComponent implements OnInit {
+  listProductos: Producto[] = []; //importa los datos
+  //conexion con lo que se hixo en el archivo producto.service, 
+  //obtiene los productos y eliminan productos, yse creaN metodoS
+  constructor(private _productoService: ProductoService,
+    private toastr: ToastrService) { }
 
-  constructor() { }
+ngOnInit(): void {
+this.obtenerProductos();
+}
 
-  ngOnInit(): void {
-  }
+
+obtenerProductos() {
+this._productoService.getProductos().subscribe(data => {
+  console.log(data);
+  this.listProductos = data;
+}, error => {
+  console.log(error);
+})
+}
+
+eliminarProducto(id: any) {
+this._productoService.eliminarProducto(id).subscribe(data => {
+  this.toastr.error('El producto fue eliminado con exito' ,'Producto Eliminado');
+  this.obtenerProductos();
+}, error => {
+  console.log(error);
+})
+}
 
 }

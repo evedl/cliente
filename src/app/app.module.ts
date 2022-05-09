@@ -7,7 +7,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 
-
+//conexion al servidor
+import { HttpClientModule } from '@angular/common/http';
 
 
 //Componentes
@@ -29,6 +30,7 @@ import { ListarProductosComponent } from './components/listar-productos/listar-p
     BrowserAnimationsModule,
     ToastrModule.forRoot(), // ToastrModule added
 
+    HttpClientModule //conexion servidor
 
 
   ],
