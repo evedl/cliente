@@ -9,6 +9,7 @@ import { ToastrModule } from 'ngx-toastr';
 
 
 
+
 //Componentes
 import { AppComponent } from './app.component';
 import { CrearProductoComponent } from './components/crear-producto/crear-producto.component';
@@ -27,6 +28,8 @@ import { ListarProductosComponent } from './components/listar-productos/listar-p
     //animaciones
     BrowserAnimationsModule,
     ToastrModule.forRoot(), // ToastrModule added
+
+
 
   ],
   providers: [],
